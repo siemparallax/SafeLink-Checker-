@@ -4,36 +4,41 @@ import json
 import os
 from datetime import datetime
 
+
 app = Flask(__name__)
 
 analyzer = URLAnalyzer()
+
 HISTORY_FILE = "history.json"
 
 
-def load_history():
+def get_history():
     if not os.path.exists(HISTORY_FILE):
         return []
 
-    try:
-        with open(HISTORY_FILE, "r") as file:
-            return json.load(file)
-    except (json.JSONDecodeError, FileNotFoundError):
-        return []
+    with open(HISTORY_FILE, "r") as file:
+        return json.load(file)
 
 
-def save_result(result):
-    history = load_history()
+def save_history(data):
+    history = get_history()
 
-    history.insert(0, result)
+    history.insert(0, data)
+
+    history = history[:20]
 
     with open(HISTORY_FILE, "w") as file:
-        json.dump(history[:50], file, indent=4)
+        json.dump(history, file, indent=4)
 
 
 @app.route("/")
-def home():
-    history = load_history()
-    return render_template("index.html", history=history)
+def index():
+    history = get_history()
+
+    return render_template(
+        "index.html",
+        history=history
+    )
 
 
 @app.route("/analyze", methods=["POST"])
@@ -41,30 +46,39 @@ def analyze():
 
     data = request.get_json()
 
-    url = data.get("url", "").strip()
+    url = data.get("url")
 
     if not url:
         return jsonify({
-            "success": False,
-            "message": "Please enter a URL."
+            "error": "URL cannot be empty"
         })
+
 
     result = analyzer.analyze(url)
 
-    result["date"] = datetime.now().strftime("%d/%m/%Y %H:%M")
+    result["checked_at"] = datetime.now().strftime(
+        "%Y-%m-%d %H:%M:%S"
+    )
 
-    save_result(result)
 
-    return jsonify({
-        "success": True,
-        "result": result
-    })
+    save_history(result)
+
+
+    return jsonify(result)
+
 
 
 @app.route("/history")
 def history():
-    return jsonify(load_history())
+
+    return jsonify(get_history())
+
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+
+    app.run(
+        debug=True,
+        host="127.0.0.1",
+        port=5000
+    )
