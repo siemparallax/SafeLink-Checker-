@@ -1,4 +1,4 @@
-SafeLink Checker
+# SafeLink Checker
 
 
 SafeLink Checker is a lightweight web application that analyzes URLs using basic security rules and generates a simple risk assessment.
@@ -6,7 +6,7 @@ SafeLink Checker is a lightweight web application that analyzes URLs using basic
 The project checks common suspicious behaviors such as missing HTTPS, IP-based URLs, unusual URL length, and suspicious keywords.
 
 
-Features
+## Features
 
 - URL security analysis
 - HTTPS detection
@@ -18,13 +18,36 @@ Features
 - Simple web interface
 
 
-Technologies
+## Technologies
 
 - Python
 - Flask
 - HTML5
 - CSS3
 - JavaScript
+
+
+## Project Structure
+
+```text
+SafeLinkChecker/
+
+├── app.py
+├── analyzer.py
+├── history.json
+├── requirements.txt
+├── README.md
+├── .gitignore
+
+├── templates/
+│   └── index.html
+
+└── static/
+    ├── style.css
+    └── script.js
+
+
+    
 
 
 ## Project Structure
