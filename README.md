@@ -1,2 +1,30 @@
-# SafeLink-Checker-
-SafeLink Checker is a lightweight Flask-based web application that analyzes URLs using simple security heuristics. It checks HTTPS usage, detects IP-based links, identifies suspicious keywords, evaluates URL length, and generates a basic risk score with a clear explanation. Built as a practical cybersecurity learning project.
+SafeLink Checker
+
+
+SafeLink Checker is a lightweight web application that analyzes URLs using basic security rules and generates a simple risk assessment.
+
+The project checks common suspicious behaviors such as missing HTTPS, IP-based URLs, unusual URL length, and suspicious keywords.
+
+
+Features
+
+- URL security analysis
+- HTTPS detection
+- IP address detection
+- Suspicious keyword checking
+- URL length analysis
+- Risk score calculation
+- Analysis history
+- Simple web interface
+
+
+Technologies
+
+- Python
+- Flask
+- HTML5
+- CSS3
+- JavaScript
+
+
+## Project Structure
