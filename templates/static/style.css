@@ -1,0 +1,177 @@
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f4f6f8;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+
+.container {
+
+    width: 90%;
+
+    max-width: 800px;
+
+    margin: 50px auto;
+
+}
+
+
+
+h1 {
+
+    text-align: center;
+
+    color: #222;
+
+}
+
+
+
+.subtitle {
+
+    text-align: center;
+
+    color: #666;
+
+}
+
+
+
+.card {
+
+    background: white;
+
+    padding: 25px;
+
+    margin-top: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+}
+
+
+
+input {
+
+    width: 75%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+}
+
+
+
+button {
+
+    padding: 12px 20px;
+
+    margin-left: 10px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+
+button:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+
+.result-box {
+
+    margin-top: 25px;
+
+}
+
+
+
+.result {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+}
+
+
+
+.safe {
+
+    border-left: 5px solid green;
+
+}
+
+
+
+.medium {
+
+    border-left: 5px solid orange;
+
+}
+
+
+
+.danger {
+
+    border-left: 5px solid red;
+
+}
+
+
+
+.history {
+
+    margin-top: 30px;
+
+}
+
+
+
+.history-item {
+
+    background: white;
+
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+
+}
